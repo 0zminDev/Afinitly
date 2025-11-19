@@ -37,6 +37,10 @@ export default [
       '**/*.mjs',
     ],
     // Override or add rules here
-    rules: {},
+    rules: {
+      'no-console': 'warn',
+      'no-debugger': 'error',
+	  'indent': ["error", "tab"]
+    },
   },
 ];

@@ -1,0 +1,12 @@
+{
+	"name": "afinitly-web-user-e2e",
+	"$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"sourceRoot": "apps/views/web/afinitly-web-user-e2e/src",
+	"implicitDependencies": ["afinitly-web-user"],
+	"targets": {
+		"docker:web:user-e2e:build": {
+			"dependsOn": ["build", "prune"]
+		}
+	}
+}
