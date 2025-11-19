@@ -1,9 +1,5 @@
 {
-	"/afinitly-api-gateway": {
-		"target": "http://localhost:3333",
-		"secure": false
-	},
-	"/afinitly-api-gateway-api": {
+	"/api": {
 		"target": "http://localhost:3000",
 		"secure": false
 	}
