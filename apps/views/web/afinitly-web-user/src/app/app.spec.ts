@@ -10,9 +10,10 @@ describe("App", () => {
 	});
 
 	it("should render title", () => {
-		const fixture = TestBed.createComponent(App);
+		const fixture = TestBed.createComponent(NxWelcome);
 		fixture.detectChanges();
 		const compiled = fixture.nativeElement as HTMLElement;
+		console.log('HTML:', compiled.innerHTML);
 		expect(compiled.querySelector("h1")?.textContent).toContain(
 			"Welcome afinitly-web-user"
 		);
