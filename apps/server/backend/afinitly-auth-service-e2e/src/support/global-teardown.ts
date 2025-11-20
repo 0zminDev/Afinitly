@@ -7,7 +7,7 @@ module.exports = async function () {
 	const port = process.env.SERVICE_PORT;
 
 	if (!port) {
-		console.error('SERVICE_PORT is not set in environment variables!');
+		console.error('GLOBAL-TEARDOWN SERVICE_PORT is not set in environment variables!');
 		process.exit(1);
 	}
 
