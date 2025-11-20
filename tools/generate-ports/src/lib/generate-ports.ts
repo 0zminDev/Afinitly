@@ -153,7 +153,7 @@ export function generatePorts(): void {
 			if (e2eDir.includes('server\\backend')) {
 				const supportDir = path.join(e2eDir, 'src', 'support');
 				if (fs.existsSync(supportDir)) {
-					const envTemplatePath = path.join(workspaceRoot, 'tools', 'generate-ports', 'src', 'environment.template.ts');
+					const envTemplatePath = path.join(workspaceRoot, 'tools', 'generate-ports', 'src', 'environment-e2e.template.ts');
 					const envTsPath = path.join(supportDir, 'environment.ts');
 					let envTsContent = fs.readFileSync(envTemplatePath, 'utf-8');
 					let relProjectDir = e2eDir.replace(workspaceRoot + path.sep, '') + '/.';

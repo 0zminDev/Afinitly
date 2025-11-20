@@ -3,7 +3,7 @@ import * as dotenvExpand from 'dotenv-expand';
 import { join } from 'path';
 
 const setupEnvironment = () => {
-	const projectDir = join(process.cwd(), 'apps/server/backend/afinitly-api-gateway-e2e/.');
+	const projectDir = join(process.cwd(), '__PROJECT_DIR__');
 	const mainEnv = dotenv.config({ path: join(projectDir, '.env') });
 	dotenvExpand.expand(mainEnv);
 	const environmentValue = process.env.ENVIRONMENT;
