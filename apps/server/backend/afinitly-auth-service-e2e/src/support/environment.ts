@@ -20,6 +20,7 @@ const setupEnvironment = () => {
 	console.log('SERVICE_HOST:', process.env.SERVICE_HOST);
 	console.log('SERVICE_PORT:', process.env.SERVICE_PORT);
 	console.log('SERVICE_NAME:', process.env.SERVICE_NAME);
+	console.log("ENVIRONMENT:", process.env.ENVIRONMENT);
 }
 
 export default setupEnvironment;
