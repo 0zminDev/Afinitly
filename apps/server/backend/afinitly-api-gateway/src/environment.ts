@@ -12,7 +12,7 @@ const setupEnvironment = () => {
 		Logger.error('ENVIRONMENT is not set in environment variables!');
 		process.exit(1);
 	}
-	const envConfig = dotenv.config({ path: join(projectDir, `${environmentValue}.env`) });
+	const envConfig = dotenv.config({ path: join(projectDir, `.${environmentValue}.env`) });
 	dotenvExpand.expand(envConfig);
 }
 

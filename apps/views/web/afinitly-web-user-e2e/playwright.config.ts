@@ -6,7 +6,7 @@ import { workspaceRoot } from "@nx/devkit";
 // Construct baseURL from SERVICE_HOST and SERVICE_PORT environment variables
 const serviceHost = process.env["SERVICE_HOST"] || "localhost";
 const servicePort = process.env["SERVICE_PORT"] || "4100";
-const baseURL = `http://${serviceHost}:${servicePort}`;
+const baseURL = 'http://localhost:4100';
 
 /**
  * Read environment variables from file.
@@ -33,7 +33,7 @@ export default defineConfig({
 	/* Run your local dev server before starting the tests */
 	webServer: {
 		command: "npx nx run afinitly-web-user:serve",
-		url: baseURL,
+		url: 'http://localhost:4100',
 		reuseExistingServer: true,
 		cwd: workspaceRoot,
 	},

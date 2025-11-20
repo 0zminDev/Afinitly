@@ -5,8 +5,24 @@
 	"sourceRoot": "apps/views/web/afinitly-web-user-e2e/src",
 	"implicitDependencies": ["afinitly-web-user"],
 	"targets": {
+		"sync-playwright-port": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "node apps/views/web/afinitly-web-user-e2e/sync-playwright-port.js"
+			},
+			"dependsOn": [
+				"generate-ports:generate"
+			]
+		},
 		"docker:web:user-e2e:build": {
 			"dependsOn": ["build", "prune"]
+		},
+		"e2e": {
+			"dependsOn": ["sync-playwright-port"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "playwright test"
+			}
 		}
 	}
 }
