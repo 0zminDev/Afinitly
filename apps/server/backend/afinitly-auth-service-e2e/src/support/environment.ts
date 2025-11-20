@@ -6,6 +6,7 @@ import { Logger } from "@nestjs/common";
 const setupEnvironment = () => {
 	const projectDir = join(process.cwd(), 'apps/server/backend/afinitly-auth-service-e2e/.');
 	const mainEnv = dotenv.config({ path: join(projectDir, '.env') });
+	console.log('Loading environment from:', join(projectDir, '.env'));
 	dotenvExpand.expand(mainEnv);
 	const environmentValue = process.env.ENVIRONMENT;
 	if (!environmentValue) {
