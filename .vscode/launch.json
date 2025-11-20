@@ -2,58 +2,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Nx Serve All",
 			"type": "node",
 			"request": "launch",
-			"name": "Debug afinitly-api-gateway with Nx",
 			"runtimeExecutable": "npx",
-			"runtimeArgs": ["nx", "serve", "afinitly-api-gateway"],
-			"env": {
-				"NODE_OPTIONS": "--inspect=9229"
-			},
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen",
-			"skipFiles": ["<node_internals>/**"],
-			"sourceMaps": true,
-			"outFiles": [
-				"${workspaceFolder}/apps/server/backend/afinitly-api-gateway/dist/**/*.(m|c|)js",
-				"!**/node_modules/**"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Debug afinitly-auth-service with Nx",
-			"runtimeExecutable": "npx",
-			"runtimeArgs": ["nx", "serve", "afinitly-auth-service"],
-			"env": {
-				"NODE_OPTIONS": "--inspect=9230"
-			},
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen",
-			"skipFiles": ["<node_internals>/**"],
-			"sourceMaps": true,
-			"outFiles": [
-				"${workspaceFolder}/apps/backend/afinitly-auth-service/dist/**/*.(m|c|)js",
-				"!**/node_modules/**"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Debug afinitly-auth-service with Nx",
-			"runtimeExecutable": "npx",
-			"runtimeArgs": ["nx", "serve", "afinitly-auth-service"],
-			"env": {
-				"NODE_OPTIONS": "--inspect=9231"
-			},
-			"console": "integratedTerminal",
-			"internalConsoleOptions": "neverOpen",
-			"skipFiles": ["<node_internals>/**"],
-			"sourceMaps": true,
-			"outFiles": [
-				"${workspaceFolder}/apps/server/backend/afinitly-auth-service/dist/**/*.(m|c|)js",
-				"!**/node_modules/**"
-			]
+			"args": ["nx", "run-many", "--target=serve"],
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal"
 		}
 	]
 }

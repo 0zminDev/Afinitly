@@ -10,7 +10,7 @@ describe("App", () => {
 	});
 
 	it("should render title", () => {
-		const fixture = TestBed.createComponent(App);
+		const fixture = TestBed.createComponent(NxWelcome);
 		fixture.detectChanges();
 		const compiled = fixture.nativeElement as HTMLElement;
 		expect(compiled.querySelector("h1")?.textContent).toContain(

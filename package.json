@@ -2,7 +2,9 @@
 	"name": "@afinitly/source",
 	"version": "0.0.0",
 	"license": "MIT",
-	"scripts": {},
+	"scripts": {
+		"prebuild": "npx nx run generate-ports:generate"
+	},
 	"private": true,
 	"dependencies": {
 		"@angular/common": "~20.3.0",
@@ -61,6 +63,7 @@
 		"jest-environment-node": "^29.7.0",
 		"jest-preset-angular": "~14.6.1",
 		"jest-util": "^29.7.0",
+		"jsonc-eslint-parser": "^2.1.0",
 		"nx": "22.0.4",
 		"postcss": "^8.4.5",
 		"prettier": "^2.6.2",

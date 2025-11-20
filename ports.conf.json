@@ -1,0 +1,37 @@
+{
+	"development": {
+		"afinitly-auth-service": {
+			"key": "auth",
+			"port": 3001,
+			"host": "localhost",
+			"name": "afinitly-auth-service",
+			"db": {
+				"port": 30011,
+				"host": "localhost",
+				"name": "afinitly_auth_db"
+			},
+			"redis": {
+				"port": 300101,
+				"host": "localhost",
+				"name": "afinitly_auth_redis"
+			},
+			"kafka": {
+				"port": 3001001,
+				"host": "localhost",
+				"name": "afinitly_auth_kafka"
+			}
+		},
+		"afinitly-api-gateway": {
+			"key": "gateway",
+			"port": 3100,
+			"host": "localhost",
+			"name": "afinitly-api-gateway"
+		},
+		"afinitly-web-user": {
+			"key": "web-user",
+			"port": 4100,
+			"host": "localhost",
+			"name": "afinitly-web-user"
+		}
+	}
+}
