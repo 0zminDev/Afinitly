@@ -23,7 +23,6 @@ jobs:
 
 
       - run: npx nx start-ci-run
-      - run: npx nx run generate-ports:generate
 
       # Cache node_modules
       - uses: actions/setup-node@v4
@@ -32,6 +31,8 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+
+      - run: npx nx run generate-ports:generate
       - run: npx playwright install --with-deps
 
       - run: npx nx-cloud record -- echo Build started
