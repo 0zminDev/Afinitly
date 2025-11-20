@@ -6,13 +6,45 @@
 	"sourceRoot": "apps/views/web/afinitly-web-user/src",
 	"tags": [],
 	"targets": {
+		"sync-angular-ports": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "node apps/views/web/afinitly-web-user/src/sync-angular-port.js"
+			}
+		},
+		"generate-envs": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "node apps/views/web/afinitly-web-user/src/generate-angular-envs.js"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "afinitly-web-user:build:production"
+				},
+				"development": {
+					"buildTarget": "afinitly-web-user:build:development"
+				}
+			},
+			"defaultConfiguration": "development",
+			"dependsOn": [
+				"generate-ports:generate"
+			]
+		},
 		"build": {
 			"executor": "@angular/build:application",
-			"outputs": ["{options.outputPath}"],
+			"dependsOn": [
+				"generate-envs",
+				"sync-angular-ports"
+			],
+			"outputs": [
+				"{options.outputPath}"
+			],
 			"options": {
 				"outputPath": "dist/apps/views/web/afinitly-web-user",
 				"browser": "apps/views/web/afinitly-web-user/src/main.ts",
-				"polyfills": ["zone.js"],
+				"polyfills": [
+					"zone.js"
+				],
 				"tsConfig": "apps/views/web/afinitly-web-user/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
 				"assets": [
@@ -21,7 +53,9 @@
 						"input": "apps/views/web/afinitly-web-user/public"
 					}
 				],
-				"styles": ["apps/views/web/afinitly-web-user/src/styles.scss"]
+				"styles": [
+					"apps/views/web/afinitly-web-user/src/styles.scss"
+				]
 			},
 			"configurations": {
 				"production": {
@@ -51,7 +85,7 @@
 			"continuous": true,
 			"executor": "@angular/build:dev-server",
 			"options": {
-				"port": 30001,
+				"port": 4100,
 				"proxyConfig": "apps/views/web/afinitly-web-user/proxy.conf.json"
 			},
 			"configurations": {
@@ -63,7 +97,11 @@
 				}
 			},
 			"defaultConfiguration": "development",
-			"dependsOn": ["afinitly-api-gateway:serve"]
+			"dependsOn": [
+				"generate-envs",
+				"sync-angular-ports",
+				"afinitly-api-gateway:serve"
+			]
 		},
 		"extract-i18n": {
 			"executor": "@angular/build:extract-i18n",
@@ -76,7 +114,9 @@
 		},
 		"test": {
 			"executor": "@nx/jest:jest",
-			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
 			"options": {
 				"jestConfig": "apps/views/web/afinitly-web-user/jest.config.ts",
 				"tsConfig": "apps/views/web/afinitly-web-user/tsconfig.spec.json"
@@ -84,16 +124,23 @@
 		},
 		"serve-static": {
 			"continuous": true,
+			"dependsOn": [
+				"generate-envs",
+				"sync-angular-ports"
+			],
 			"executor": "@nx/web:file-server",
 			"options": {
 				"buildTarget": "afinitly-web-user:build",
-				"port": 30001,
+				"port": 4100,
 				"staticFilePath": "dist/apps/views/web/afinitly-web-user/browser",
 				"spa": true
 			}
 		},
 		"docker:web:user:build": {
-			"dependsOn": ["build", "prune"]
+			"dependsOn": [
+				"build",
+				"prune"
+			]
 		}
 	}
 }

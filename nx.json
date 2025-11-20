@@ -17,6 +17,18 @@
 	},
 	"nxCloudId": "691ca402b45905525a89b9ab",
 	"targetDefaults": {
+		"build": {
+			"dependsOn": ["generate-ports:generate"]
+		},
+		"e2e": {
+			"dependsOn": ["generate-ports:generate"]
+		},
+		"e2e-ci": {
+			"dependsOn": ["generate-ports:generate"]
+		},
+		"e2e-ci--merge-reports": {
+			"dependsOn": ["generate-ports:generate"]
+		},
 		"@angular/build:application": {
 			"cache": true,
 			"dependsOn": ["^build"],
@@ -47,6 +59,11 @@
 					"codeCoverage": true
 				}
 			}
+		},
+		"@nx/js:tsc": {
+			"cache": true,
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
 		}
 	},
 	"plugins": [
