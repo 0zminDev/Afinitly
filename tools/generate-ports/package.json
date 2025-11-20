@@ -9,7 +9,6 @@
 		"tslib": "^2.3.0",
 		"dotenv": "^16.4.7",
 		"dotenv-expand": "^11.0.7",
-		"@nestjs/common": "^9.0.0",
-		"@nx/dependency-checks": "workspace:*"
+		"@nestjs/common": "11.1.9"
 	}
 }
