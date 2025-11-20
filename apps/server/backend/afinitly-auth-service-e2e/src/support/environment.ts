@@ -15,6 +15,11 @@ const setupEnvironment = () => {
 	}
 	const envConfig = dotenv.config({ path: join(projectDir, `${environmentValue}.env`) });
 	dotenvExpand.expand(envConfig);
+
+	console.log(`Environment "${environmentValue}" loaded for afinitly-auth-service-e2e`);
+	console.log('SERVICE_HOST:', process.env.SERVICE_HOST);
+	console.log('SERVICE_PORT:', process.env.SERVICE_PORT);
+	console.log('SERVICE_NAME:', process.env.SERVICE_NAME);
 }
 
 export default setupEnvironment;
