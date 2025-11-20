@@ -3,13 +3,21 @@ import { nxE2EPreset } from "@nx/playwright/preset";
 import { workspaceRoot } from "@nx/devkit";
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env["BASE_URL"] || "http://localhost:30001";
+// Construct baseURL from SERVICE_HOST and SERVICE_PORT environment variables
+const serviceHost = process.env["SERVICE_HOST"] || "localhost";
+const servicePort = process.env["SERVICE_PORT"] || "4100";
+const baseURL = `http://${serviceHost}:${servicePort}`;
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+// Load environment variables from the correct .env file
+import * as path from "path";
+import * as dotenv from "dotenv";
+
+const envPath = path.resolve(__dirname, ".env");
+dotenv.config({ path: envPath });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -25,7 +33,7 @@ export default defineConfig({
 	/* Run your local dev server before starting the tests */
 	webServer: {
 		command: "npx nx run afinitly-web-user:serve",
-		url: "http://localhost:30001",
+		url: baseURL,
 		reuseExistingServer: true,
 		cwd: workspaceRoot,
 	},
