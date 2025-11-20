@@ -7,7 +7,6 @@ const envPath = path.resolve(__dirname, '.env');
 const playwrightConfigPath = path.resolve(__dirname, 'playwright.config.ts');
 
 if (!fs.existsSync(envPath)) {
-	console.error('.env file not found:', envPath);
 	process.exit(1);
 }
 
@@ -29,4 +28,3 @@ config = config.replace(
 );
 
 fs.writeFileSync(playwrightConfigPath, config);
-console.log('playwright.config.ts updated with baseURL:', baseURL);

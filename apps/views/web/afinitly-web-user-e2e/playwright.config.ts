@@ -4,8 +4,6 @@ import { workspaceRoot } from "@nx/devkit";
 
 // For CI, you may want to set BASE_URL to the deployed application.
 // Construct baseURL from SERVICE_HOST and SERVICE_PORT environment variables
-const serviceHost = process.env["SERVICE_HOST"] || "localhost";
-const servicePort = process.env["SERVICE_PORT"] || "4100";
 const baseURL = 'http://localhost:4100';
 
 /**
