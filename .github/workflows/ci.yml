@@ -21,8 +21,9 @@ jobs:
           filter: tree:0
           fetch-depth: 0
 
-      - run: npx nx run generate-ports:generate
+
       - run: npx nx start-ci-run
+      - run: npx nx run generate-ports:generate
 
       # Cache node_modules
       - uses: actions/setup-node@v4
